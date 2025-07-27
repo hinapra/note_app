@@ -36,7 +36,7 @@
 
 <body>
   <header>
-    <h1>Welcome to NoteApp</h1>
+    <h1>Welcome to NoteApp(Welcom)</h1>
     <p>Your personal space to store ideas and reminders</p>
   </header>
 </body>
