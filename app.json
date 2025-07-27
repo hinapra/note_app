@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "extra": {
+      "eas": {
+        "projectId": "d8efa8a6-0017-49d0-a12e-8dfcdac4fbde"
+      }
+    },
+    "android": {
+      "package": "com.hinap.noteapi"
+    }
+  }
+}
