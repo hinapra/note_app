@@ -1,0 +1,29 @@
+name: Deploy to EC2 on push
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.8.1
+        with:
+          ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
+
+      - name: Deploy to EC2
+        run: |
+          ssh -o StrictHostKeyChecking=no ubuntu@<your-ec2-public-ip> << 'EOF'
+            cd /var/www/note-api
+            git pull origin main
+            # (optional) run composer, migrations, npm etc.
+            php artisan migrate --force
+            php artisan config:cache
+          EOF
