@@ -11,6 +11,12 @@ Route::get('/', function () {
 
 
 
+Route::get('/hello', function () {
+    return view('hello');
+});
+
+
+
 Route::get('/pay', [RazorpayController::class, 'showPaymentForm']);
 Route::post('/payment', [RazorpayController::class, 'handlePayment'])->name('payment');
 
